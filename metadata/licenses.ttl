@@ -1,0 +1,6 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<#repo> dct:license <https://opensource.org/license/mit/> .
+<#olympics> dct:license <https://opendatacommons.org/licenses/pddl/> .
+<#eurostat> dct:license <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L1024> .
+<#mashup> dct:license <https://creativecommons.org/licenses/by/4.0/> .
