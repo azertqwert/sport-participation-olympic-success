@@ -5,28 +5,39 @@ function toNum(x) {
   return Number.isFinite(v) ? v : null;
 }
 
+// robust row getter (handles weird whitespace)
+function get(r, key) {
+  if (r[key] !== undefined) return r[key];
+  // try trimmed keys (sometimes headers contain spaces)
+  const k = Object.keys(r).find(h => h.trim() === key);
+  return k ? r[k] : undefined;
+}
+
 Papa.parse(CSV_PATH, {
   download: true,
   header: true,
   skipEmptyLines: true,
 
-  // Your sample looks tab-separated, so we set delimiter to tab.
-  // If your file is actually comma-separated, PapaParse will still often work,
-  // but tab is the safest based on what you pasted.
-  delimiter: "\t",
+  // AUTO-detect delimiter instead of hardcoding tab/comma/semicolon
+  delimiter: "",
 
   complete: (result) => {
-    const rows = result.data
+    const rows = (result.data || [])
       .map(r => ({
-        code: (r["NOC"] || "").trim(),
-        medals: toNum(r["Count*(Count(Medal))"]),
-        participation: toNum(r["sport_participation_rate"])
+        code: String(get(r, "NOC") ?? "").trim(),
+        medals: toNum(get(r, "Count*(Count(Medal))")),
+        participation: toNum(get(r, "sport_participation_rate"))
       }))
       .filter(r => r.code && r.medals !== null && r.participation !== null);
 
     if (!rows.length) {
+      const headers = result.meta?.fields ? result.meta.fields.join(", ") : "(none)";
       document.getElementById("scatter").innerHTML =
-        "<p style='padding:12px'>No data loaded. Check the CSV delimiter and column names.</p>";
+        `<p style="padding:12px">
+          No data loaded.<br>
+          Detected headers: <code>${headers}</code><br>
+          Check that the file is at <code>${CSV_PATH}</code>.
+        </p>`;
       return;
     }
 
@@ -36,8 +47,7 @@ Papa.parse(CSV_PATH, {
       x: rows.map(r => r.participation),
       y: rows.map(r => r.medals),
       text: rows.map(r => r.code),
-      hovertemplate:
-        "Country: %{text}<br>Participation: %{x}%<br>Medals: %{y}<extra></extra>"
+      hovertemplate: "Country: %{text}<br>Participation: %{x}%<br>Medals: %{y}<extra></extra>"
     }], {
       margin: { t: 20, r: 20, b: 55, l: 70 },
       xaxis: { title: "Sport participation rate (%)" },
@@ -47,6 +57,6 @@ Papa.parse(CSV_PATH, {
 
   error: (err) => {
     document.getElementById("scatter").innerHTML =
-      "<p style='padding:12px'>Error loading CSV: " + err + "</p>";
+      `<p style="padding:12px">Error loading CSV: ${err}</p>`;
   }
 });
