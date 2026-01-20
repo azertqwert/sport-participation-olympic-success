@@ -9,10 +9,15 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
+  <!-- Plotly + PapaParse (for interactive chart) -->
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
   <style>
     body { padding-top: 56px; }
     header { padding: 120px 0 60px; }
     section { padding: 80px 0; }
+    .plot { width: 100%; height: 520px; }
   </style>
 </head>
 
@@ -66,21 +71,26 @@
 
     <h5>Total Olympic medals by country</h5>
     <img src="assets/figures/Bar_Chart_medals.png"
-     class="img-fluid border mb-4"
-     alt="Bar chart of Olympic medals by country">
+         class="img-fluid border mb-4"
+         alt="Bar chart of Olympic medals by country">
 
     <h5>Sport participation rate by country</h5>
     <img src="assets/figures/Bar_Chart_sport_participation.png"
-     class="img-fluid border mb-4"
-     alt="Bar chart of sport participation rates">
+         class="img-fluid border mb-4"
+         alt="Bar chart of sport participation rates">
 
     <h5>Sport participation vs Olympic medals</h5>
     <img src="assets/figures/Scatter_Plot_participation_vs_Medals.png"
-     class="img-fluid border mb-4"
-     alt="Scatter plot of participation vs medals">
+         class="img-fluid border mb-4"
+         alt="Scatter plot of participation vs medals">
+
+    <h5 class="mt-4">Interactive scatter plot</h5>
+    <div id="scatter" class="plot border"></div>
+    <p class="small text-muted">
+      Data source: <code>docs/assets/data/medal_vs_sport_participation.csv</code>
+    </p>
   </div>
 </section>
-
 
 <section id="datasets">
   <div class="container">
@@ -130,6 +140,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Load chart code -->
+<script src="js/charts.js"></script>
 
 </body>
 </html>
