@@ -1,0 +1,31 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://azertqwert.github.io/sport-participation-olympic-success/>
+  a dcat:Catalog ;
+  dct:title "Sport Participation and Olympic Success across European Countries" ;
+  dct:description "Mashup of Olympic medal counts and Eurostat sport participation rates." ;
+  dct:language "en" ;
+  dct:publisher [ a foaf:Person ; foaf:name "Amélie Saint-Loup" ] ;
+  dcat:dataset <#olympics>, <#participation>, <#mashup> .
+
+<#olympics>
+  a dcat:Dataset ;
+  dct:title "Olympic dataset (Kaggle)" ;
+  dct:publisher "Bhanupratap Biswas (Kaggle)" ;
+  dct:format "text/csv" ;
+  dct:license <https://opendatacommons.org/licenses/pddl/> .
+
+<#participation>
+  a dcat:Dataset ;
+  dct:title "Sport participation (Eurostat)" ;
+  dct:publisher "Eurostat" ;
+  dct:format "text/csv" ;
+  dct:license <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L1024> .
+
+<#mashup>
+  a dcat:Dataset ;
+  dct:title "Mashup: medals vs sport participation" ;
+  dct:format "text/csv" ;
+  dct:license <https://creativecommons.org/licenses/by/4.0/> .
