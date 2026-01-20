@@ -1,11 +1,126 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <title>Sport Participation and Olympic Success</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Olympics × Participation</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <style>
+    body { padding-top: 56px; }
+    header { padding: 120px 0 60px; }
+    section { padding: 80px 0; }
+  </style>
 </head>
-<body>
-  <h1>Website is working</h1>
+
+<body id="page-top">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#page-top">Olympics × Participation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+        <li class="nav-item"><a class="nav-link" href="#visualization">Visualization</a></li>
+        <li class="nav-item"><a class="nav-link" href="#datasets">Datasets</a></li>
+        <li class="nav-item"><a class="nav-link" href="#documentation">Documentation</a></li>
+        <li class="nav-item"><a class="nav-link" href="#license">License</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="bg-light">
+  <div class="container text-center">
+    <h1>Sport Participation and Olympic Success</h1>
+    <p class="lead">
+      Exploring the relationship between access to sport and Olympic performance
+    </p>
+  </div>
+</header>
+
+<section id="introduction">
+  <div class="container">
+    <h2>Introduction</h2>
+    <p>
+      Sport plays an important social role by contributing to public health, social inclusion,
+      and individual well-being. However, access to sport and opportunities to reach elite
+      performance are not evenly distributed across countries.
+    </p>
+    <p>
+      This project explores whether higher sport participation rates are associated with
+      greater Olympic success across European countries.
+    </p>
+  </div>
+</section>
+
+<section id="visualization" class="bg-light">
+  <div class="container">
+    <h2>Visualization</h2>
+    <p>
+      This section presents visual comparisons between total Olympic medal counts
+      and sport participation rates.
+    </p>
+    <p>
+      (Charts will appear here in the next step.)
+    </p>
+  </div>
+</section>
+
+<section id="datasets">
+  <div class="container">
+    <h2>Datasets</h2>
+
+    <h5>Original datasets</h5>
+    <ul>
+      <li>Olympic dataset (Kaggle, PDDL)</li>
+      <li>Sport participation dataset (Eurostat, EU Open Data Directive)</li>
+    </ul>
+
+    <h5>Mashup dataset</h5>
+    <ul>
+      <li>Aggregated by country</li>
+      <li>Total Olympic medals + sport participation rate</li>
+    </ul>
+  </div>
+</section>
+
+<section id="documentation" class="bg-light">
+  <div class="container">
+    <h2>Documentation</h2>
+    <ul>
+      <li>KNIME workflow for data processing</li>
+      <li>Legal, ethical, and quality analysis</li>
+      <li>DCAT-AP metadata (RDF)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="license">
+  <div class="container">
+    <h2>License</h2>
+    <ul>
+      <li>Code and website: MIT License</li>
+      <li>Olympic dataset: ODC Public Domain Dedication and Licence (PDDL)</li>
+      <li>Sport participation dataset: EU Directive 2019/1024</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="bg-dark text-white-50 py-4">
+  <div class="container text-center">
+    © 2026 – University project
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
